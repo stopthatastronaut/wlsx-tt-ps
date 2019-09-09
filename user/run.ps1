@@ -1,3 +1,5 @@
+param($req, $TriggerMetadata)
+
 $name = $env:WLSX_CANDIDATE_NAME
 $token = $env:WLSX_TOKEN
 
