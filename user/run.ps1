@@ -13,7 +13,6 @@ $body = [pscustomobject]@{
 } | ConvertTo-Json
 
 $status = [HttpStatusCode]::OK
-
 Push-OutputBinding -Name Res -Value ([HttpResponseContext]@{
     StatusCode = $status
     Body = $body

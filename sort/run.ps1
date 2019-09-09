@@ -1,3 +1,7 @@
+using namespace System.Net
+
+param($req, $TriggerMetadata)
+
 # POST method: $req
 # $requestBody = Get-Content $req -Raw | ConvertFrom-Json
 
@@ -56,4 +60,11 @@ switch($sortoption)
     }
 }
 
-$sorted | ConvertTo-Json | Out-File -Encoding Ascii -FilePath $res
+$body = $sorted | ConvertTo-Json
+
+
+$status = [HttpStatusCode]::OK
+Push-OutputBinding -Name Res -Value ([HttpResponseContext]@{
+    StatusCode = $status
+    Body = $body
+})
