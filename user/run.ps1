@@ -1,3 +1,6 @@
+$name = $env:WLSX_CANDIDATE_NAME
+$token = $env:WLSX_TOKEN
+
 Write-Information "Hello, I am debugging right now"
 
 [pscustomobject]@{
