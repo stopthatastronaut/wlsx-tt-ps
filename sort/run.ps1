@@ -33,10 +33,11 @@ $productsuri = $env:WLSX_BASE_URL + "/api/resource/products?token=" + $env:WLSX_
 $products = Invoke-Restmethod -uri $productsuri -Headers @{accept = "application/json"}
 
 # GET method: each querystring parameter is its own variable
-if($req_query_sortOption)
+if($req.query.sortOption)
 {
-    $sortoption = $req_query_sortOption
+    $sortoption = $req.query.sortOption
 }
+Write-Host "Sort option is $sortoption"
 
 switch($sortoption)
 {
