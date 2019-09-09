@@ -25,3 +25,9 @@ Invoke-Restmethod $ex1 -method POST -body ($body | ConvertTo-Json) -ContentType 
 $ex2 = "$baseurl/api/Exercise/Exercise2"
 
 Invoke-Restmethod $ex2 -method POST -body ($body | ConvertTo-Json) -ContentType 'application/json'
+
+
+$ex3 = "$baseurl/api/Exercise/Exercise3"
+
+Invoke-Restmethod $ex3 -method POST -body ($body | ConvertTo-Json) -ContentType 'application/json'
+
