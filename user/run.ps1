@@ -1,11 +1,20 @@
+using namespace System.Net
+
 param($req, $TriggerMetadata)
 
 $name = $env:WLSX_CANDIDATE_NAME
 $token = $env:WLSX_TOKEN
 
-Write-Information "Hello, I am debugging right now"
+Write-Host "Hello, I am debugging right now"
 
-[pscustomobject]@{
+$body = [pscustomobject]@{
     name = $name;
     token = $token;
-} | ConvertTo-Json | Out-File -Encoding Ascii -FilePath $res
+} | ConvertTo-Json
+
+$status = [HttpStatusCode]::OK
+
+Push-OutputBinding -Name Res -Value ([HttpResponseContext]@{
+    StatusCode = $status
+    Body = $body
+})
